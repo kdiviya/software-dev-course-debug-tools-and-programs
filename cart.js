@@ -1,11 +1,11 @@
-// const cart = [
-//   { name: "Laptop", price: 1000 },
-//   { name: "Phone", price: 500 },
-//   { name: "Headphones", price: 200 }
-// ];
-
 const cart = [
-  { name: "Laptop", price: 1000 }];
+  { name: "Laptop", price: 1000 },
+  { name: "Phone", price: 500 },
+  { name: "Headphones", price: 200 }
+];
+
+// const cart = [
+//   { name: "Laptop", price: 1000 }];
 
 //const cart = [];
 
@@ -20,7 +20,13 @@ function calculateTotal(cartItems) {
 }
 
 function applyDiscount(total, discountRate) {
-  return total - total * discountRate; // Bug: Missing validation for discountRate
+  if (discountRate < 0 || discountRate > 1){
+    console.log("Invalid Discount Rate") ;// Bug: Missing validation for discountRate
+  }
+  else {
+    return total - total * discountRate; 
+  }
+  
 }
 
 function generateReceipt(cartItems, total) {
@@ -53,10 +59,11 @@ Shopping Cart
 Total: $800
 Items: Laptop: $1000 Total: $800.00
 
-iii. A discountRate of 0  -> It displays the below
+iii. A discountRate of 0  -> It displays the below for empty cart at dicosunt rate 0
 Shopping Cart
-Total: $1000
-Items: Laptop: $1000 Total: $1000.00
+Total: $0
+Items: 
+Total: $0.00
 */
 
 /*4. Write a Summary:
